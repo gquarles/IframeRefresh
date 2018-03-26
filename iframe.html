@@ -1,21 +1,23 @@
 <html>
 <head>
     <title>Iframe Automatic Refresh</title>
-
     <script>
-            window.setInterval("reloadIFrame();", 5000);
-            function reloadIFrame() {
-             document.getElementById("IframeID").src="http://milligram.cc";
-            }
-    </script>
+        //Change these
+        var source = "http://milligram.cc"; //Source to set iframe to
+        var refreshTime = 5000; //Time between refeshes in milliseconds
 
+        window.setInterval("reloadIFrame();", refreshTime);
+
+        function reloadIFrame() {
+            document.getElementById("iframeID").src=source;
+        }
+    </script>
 </head>
 <body>
     <div id="content">
-        <iframe id="IframeID" src="http://milligram.cc" style="position:fixed; top:0px; bottom:0px; right:0px; width: 100%; border: none; margin:0; padding:0; overflow: hidden; z-index:999999; height: 100%;">
+        <script>
+            document.write("<iframe id='iframeID' src='" + source + "' style='position:fixed; top:0px; bottom:0px; right:0px; width: 100%; border: none; margin:0; padding:0; overflow: hidden; z-index:999999; height: 100%;'>");
+        </script>
     </div>
 </body>
-
-
-
 </html>
